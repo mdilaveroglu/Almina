@@ -2825,7 +2825,7 @@ function get_each_context_1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (101:6) {#each social as { link, icon }}
+// (98:6) {#each social as { link, icon }}
 function create_each_block_1(ctx) {
 	let a;
 	let span;
@@ -2862,9 +2862,9 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "icon svelte-15f55d3");
+			attr(span, "class", "icon svelte-54tcsq");
 			attr(a, "href", a_href_value = /*link*/ ctx[9].url);
-			attr(a, "class", "svelte-15f55d3");
+			attr(a, "class", "svelte-54tcsq");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -2901,7 +2901,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (118:6) {:else}
+// (115:6) {:else}
 function create_else_block(ctx) {
 	let label;
 	let span;
@@ -2940,11 +2940,11 @@ function create_else_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "svelte-15f55d3");
+			attr(span, "class", "svelte-54tcsq");
 			attr(input, "type", input_type_value = /*input*/ ctx[6].type || "text");
 			attr(input, "placeholder", input_placeholder_value = /*input*/ ctx[6].placeholder);
-			attr(input, "class", "svelte-15f55d3");
-			attr(label, "class", "svelte-15f55d3");
+			attr(input, "class", "svelte-54tcsq");
+			attr(label, "class", "svelte-54tcsq");
 		},
 		m(target, anchor) {
 			insert_hydration(target, label, anchor);
@@ -2970,7 +2970,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (113:6) {#if input.type === "textarea"}
+// (110:6) {#if input.type === "textarea"}
 function create_if_block(ctx) {
 	let label;
 	let span;
@@ -2978,7 +2978,6 @@ function create_if_block(ctx) {
 	let t0;
 	let t1;
 	let textarea;
-	let textarea_id_value;
 
 	return {
 		c() {
@@ -2997,16 +2996,15 @@ function create_if_block(ctx) {
 			t0 = claim_text(span_nodes, t0_value);
 			span_nodes.forEach(detach);
 			t1 = claim_space(label_nodes);
-			textarea = claim_element(label_nodes, "TEXTAREA", { id: true, class: true });
+			textarea = claim_element(label_nodes, "TEXTAREA", { class: true });
 			children(textarea).forEach(detach);
 			label_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(span, "class", "svelte-15f55d3");
-			attr(textarea, "id", textarea_id_value = /*input*/ ctx[6].key);
-			attr(textarea, "class", "svelte-15f55d3");
-			attr(label, "class", "svelte-15f55d3");
+			attr(span, "class", "svelte-54tcsq");
+			attr(textarea, "class", "svelte-54tcsq");
+			attr(label, "class", "svelte-54tcsq");
 		},
 		m(target, anchor) {
 			insert_hydration(target, label, anchor);
@@ -3017,10 +3015,6 @@ function create_if_block(ctx) {
 		},
 		p(ctx, dirty) {
 			if (dirty & /*inputs*/ 1 && t0_value !== (t0_value = /*input*/ ctx[6].label + "")) set_data(t0, t0_value);
-
-			if (dirty & /*inputs*/ 1 && textarea_id_value !== (textarea_id_value = /*input*/ ctx[6].key)) {
-				attr(textarea, "id", textarea_id_value);
-			}
 		},
 		d(detaching) {
 			if (detaching) detach(label);
@@ -3028,7 +3022,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (112:4) {#each inputs as input, i}
+// (109:4) {#each inputs as input, i}
 function create_each_block(ctx) {
 	let if_block_anchor;
 
@@ -3177,13 +3171,13 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(h2, "class", "heading");
-			attr(div0, "class", "body svelte-15f55d3");
-			attr(div1, "class", "social-links svelte-15f55d3");
-			attr(div2, "class", "content svelte-15f55d3");
-			attr(button, "class", "button svelte-15f55d3");
+			attr(div0, "class", "body svelte-54tcsq");
+			attr(div1, "class", "social-links svelte-54tcsq");
+			attr(div2, "class", "content svelte-54tcsq");
+			attr(button, "class", "button svelte-54tcsq");
 			attr(button, "type", "submit");
-			attr(form, "class", "svelte-15f55d3");
-			attr(section, "class", "section-container svelte-15f55d3");
+			attr(form, "class", "svelte-54tcsq");
+			attr(section, "class", "section-container svelte-54tcsq");
 		},
 		m(target, anchor) {
 			insert_hydration(target, section, anchor);
@@ -3305,10 +3299,7 @@ function create_fragment(ctx) {
 }
 
 function sendEmail() {
-	// window.location.href = `mailto:${inputs.email}`;
-	var name = document.getElementById('text').value;
-
-	alert(`mailto:${name}`);
+	window.location.href = `mailto:suflenut@gmail.com`;
 }
 
 function instance($$self, $$props, $$invalidate) {
