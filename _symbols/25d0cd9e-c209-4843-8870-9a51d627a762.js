@@ -3141,15 +3141,15 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
+	let { info } = $$props;
 	let { social } = $$props;
 	let { footer_nav } = $$props;
-	let { info } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(2, props = $$props.props);
+		if ('info' in $$props) $$invalidate(3, info = $$props.info);
 		if ('social' in $$props) $$invalidate(0, social = $$props.social);
 		if ('footer_nav' in $$props) $$invalidate(1, footer_nav = $$props.footer_nav);
-		if ('info' in $$props) $$invalidate(3, info = $$props.info);
 	};
 
 	return [social, footer_nav, props, info];
@@ -3161,9 +3161,9 @@ class Component extends SvelteComponent {
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			props: 2,
+			info: 3,
 			social: 0,
-			footer_nav: 1,
-			info: 3
+			footer_nav: 1
 		});
 	}
 }
