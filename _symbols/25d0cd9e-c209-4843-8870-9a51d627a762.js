@@ -2809,21 +2809,21 @@ let Component$1 = class Component extends SvelteComponent {
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[3] = list[i].link;
-	child_ctx[4] = list[i].icon;
+	child_ctx[4] = list[i].link;
+	child_ctx[5] = list[i].icon;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[3] = list[i].link;
+	child_ctx[4] = list[i].link;
 	return child_ctx;
 }
 
-// (61:6) {#each footer_nav as { link }}
+// (62:6) {#each footer_nav as { link }}
 function create_each_block_1(ctx) {
 	let a;
-	let t_value = /*link*/ ctx[3].label + "";
+	let t_value = /*link*/ ctx[4].label + "";
 	let t;
 	let a_href_value;
 
@@ -2841,16 +2841,16 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*link*/ ctx[3].url);
+			attr(a, "href", a_href_value = /*link*/ ctx[4].url);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*footer_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[3].label + "")) set_data(t, t_value);
+			if (dirty & /*footer_nav*/ 2 && t_value !== (t_value = /*link*/ ctx[4].label + "")) set_data(t, t_value);
 
-			if (dirty & /*footer_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[3].url)) {
+			if (dirty & /*footer_nav*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[4].url)) {
 				attr(a, "href", a_href_value);
 			}
 		},
@@ -2860,7 +2860,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (67:6) {#each social as { link, icon }}
+// (68:6) {#each social as { link, icon }}
 function create_each_block(ctx) {
 	let li;
 	let a;
@@ -2869,7 +2869,7 @@ function create_each_block(ctx) {
 	let a_aria_label_value;
 	let t;
 	let current;
-	icon = new Component$1({ props: { icon: /*icon*/ ctx[4] } });
+	icon = new Component$1({ props: { icon: /*icon*/ ctx[5] } });
 
 	return {
 		c() {
@@ -2897,8 +2897,8 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*link*/ ctx[3].url);
-			attr(a, "aria-label", a_aria_label_value = /*icon*/ ctx[4]);
+			attr(a, "href", a_href_value = /*link*/ ctx[4].url);
+			attr(a, "aria-label", a_aria_label_value = /*icon*/ ctx[5]);
 			attr(a, "class", "svelte-5m5swo");
 		},
 		m(target, anchor) {
@@ -2910,14 +2910,14 @@ function create_each_block(ctx) {
 		},
 		p(ctx, dirty) {
 			const icon_changes = {};
-			if (dirty & /*social*/ 1) icon_changes.icon = /*icon*/ ctx[4];
+			if (dirty & /*social*/ 1) icon_changes.icon = /*icon*/ ctx[5];
 			icon.$set(icon_changes);
 
-			if (!current || dirty & /*social*/ 1 && a_href_value !== (a_href_value = /*link*/ ctx[3].url)) {
+			if (!current || dirty & /*social*/ 1 && a_href_value !== (a_href_value = /*link*/ ctx[4].url)) {
 				attr(a, "href", a_href_value);
 			}
 
-			if (!current || dirty & /*social*/ 1 && a_aria_label_value !== (a_aria_label_value = /*icon*/ ctx[4])) {
+			if (!current || dirty & /*social*/ 1 && a_aria_label_value !== (a_aria_label_value = /*icon*/ ctx[5])) {
 				attr(a, "aria-label", a_aria_label_value);
 			}
 		},
@@ -3143,20 +3143,28 @@ function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
 	let { social } = $$props;
 	let { footer_nav } = $$props;
+	let { info } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(2, props = $$props.props);
 		if ('social' in $$props) $$invalidate(0, social = $$props.social);
 		if ('footer_nav' in $$props) $$invalidate(1, footer_nav = $$props.footer_nav);
+		if ('info' in $$props) $$invalidate(3, info = $$props.info);
 	};
 
-	return [social, footer_nav, props];
+	return [social, footer_nav, props, info];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { props: 2, social: 0, footer_nav: 1 });
+
+		init(this, options, instance, create_fragment, safe_not_equal, {
+			props: 2,
+			social: 0,
+			footer_nav: 1,
+			info: 3
+		});
 	}
 }
 
