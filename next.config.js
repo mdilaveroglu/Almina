@@ -10,14 +10,22 @@ const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
 const nextConfig = {
   images: {
     remotePatterns: [
-      ...[NEXT_PUBLIC_SERVER_URL /* 'https://example.com' */].map((item) => {
+      ...[NEXT_PUBLIC_SERVER_URL /* 'https://example.com' */].filter(Boolean).map((item) => {
         const url = new URL(item)
-
         return {
           hostname: url.hostname,
           protocol: url.protocol.replace(':', ''),
         }
       }),
+      // Allow Supabase storage domain for images
+      ...(process.env.S3_ENDPOINT
+        ? [
+            {
+              hostname: new URL(process.env.S3_ENDPOINT).hostname,
+              protocol: new URL(process.env.S3_ENDPOINT).protocol.replace(':', ''),
+            },
+          ]
+        : []),
     ],
   },
   webpack: (webpackConfig) => {
