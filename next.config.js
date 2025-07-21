@@ -6,21 +6,14 @@ import redirects from './redirects.js'
 const nextConfig = {
   images: {
     remotePatterns: [
-      // Add Supabase storage endpoint support for images
-      ...(process.env.S3_ENDPOINT
-        ? [
-            {
-              hostname: new URL(process.env.S3_ENDPOINT).hostname,
-              protocol: new URL(process.env.S3_ENDPOINT).protocol.replace(':', ''),
-            },
-          ]
-        : []),
-      // Allow localhost for development
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3000',
-      },
+      ...[process.env.NEXT_PUBLIC_SERVER_URL].map((item) => {
+        const url = new URL(item)
+
+        return {
+          hostname: url.hostname,
+          protocol: url.protocol.replace(':', ''),
+        }
+      }),
     ],
   },
   webpack: (webpackConfig) => {
