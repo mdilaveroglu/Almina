@@ -8,11 +8,10 @@ type Props = TextWithMediaBlock & {
   disableInnerContainer?: boolean
 }
 
-export const TextWithMediaBlock: React.FC<Props> = ({
+export const TextWithMediaBlockComponent: React.FC<Props> = ({
   textPosition = 'left',
   text,
   media,
-  disableInnerContainer,
 }) => {
   return (
     <div className="container my-16">
